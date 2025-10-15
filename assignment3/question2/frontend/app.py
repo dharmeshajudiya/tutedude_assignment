@@ -19,6 +19,12 @@ def home():
 @app.route("/submit", methods=["POST"])
 def submit():
     try:
+        """
+        # Test exception trigger
+        if request.form.get("first_name") == "test":
+            raise Exception("Error: Provide proper first name.")
+        """
+        
         # Convert form data to dict and send to backend
         form_data = dict(request.form)
         requests.post(f"{BACKEND_URL}/submit", json=form_data)
